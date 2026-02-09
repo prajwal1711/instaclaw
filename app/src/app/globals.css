@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: #FAF9F7;
+  --color-surface: #ffffff;
+  --color-border: #E9E8E4;
+  --color-border-light: #F0EFEC;
+  --color-text-primary: #1B1B1F;
+  --color-text-secondary: #64647A;
+  --color-text-muted: #9E9EB0;
+  --color-accent: #5B4CDB;
+  --color-accent-light: #EEEDFF;
+  --color-teal: #1A9E8F;
+  --color-teal-bg: #EDFAF8;
+  --color-coral: #E86C50;
+  --color-coral-bg: #FEF0EC;
+  --color-blue: #3B82F6;
+  --color-blue-bg: #EFF6FF;
+  --color-amber: #E5A523;
+  --color-amber-bg: #FFFBEB;
+  --font-body: var(--font-body);
+  --font-display: "DM Serif Display", Georgia, serif;
+}
+
+body {
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+/* Display font loaded via CSS since next/font doesn't support DM Serif Display weight config easily */
+@font-face {
+  font-family: "DM Serif Display";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/dmserifdisplay/v15/-nFnOHM81r4j6k0gjAW3mujVU2B2G_5x0g.woff2")
+    format("woff2");
+}
+
+.font-display {
+  font-family: "DM Serif Display", Georgia, serif;
+}
+
+/* Picker card selected state */
+.picker-card[aria-pressed="true"] {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-light);
+}
+
+/* OpenClaw highlight underline */
+.oc-highlight {
+  position: relative;
+  color: var(--color-accent);
+}
+.oc-highlight::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 8px;
+  background: var(--color-accent-light);
+  z-index: -1;
+  border-radius: 4px;
+}
